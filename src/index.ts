@@ -13,11 +13,14 @@ app.use(express.json());
 app.use(cors());
 
 // database init
-initMongoConnection();
+// initMongoConnection();
 
 // api index
-app.use("/api", indexRouter);
+// app.use("/api", indexRouter);
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is up on port ${process.env.PORT}!`);
+app.listen(process.env.PORT || 8000, () => {
+  console.log(`Server is up on port ${process.env.PORT || 8000}!`);
 });
